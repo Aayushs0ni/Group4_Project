@@ -98,7 +98,20 @@ public class BlackJackGame {
             System.out.println(dealerHand);
             System.out.println("Dealer's final hand value: " + dealerHand.getValue());
 
-            ///
+            for (int i = 0; i < playerHands.size(); i++) {
+                Hand playerHand = playerHands.get(i);
+                if (playerBusted(playerHand)) {
+                    System.out.println("Player " + (i + 1) + " loses.");
+                } else if (dealerBusted()) {
+                    System.out.println("Player " + (i + 1) + " wins! Dealer busts.");
+                } else if (playerHand.getValue() > dealerHand.getValue()) {
+                    System.out.println("Player " + (i + 1) + " wins!");
+                } else if (playerHand.getValue() < dealerHand.getValue()) {
+                    System.out.println("Player " + (i + 1) + " loses.");
+                } else {
+                    System.out.println("Player " + (i + 1) + " pushes with the dealer.");
+                }
+            }
 
             for (Hand playerHand : playerHands) {
                 playerHand.clear();
