@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
-    private List<Card> cards;
+     private List<Card> cards;
 
     public Hand() {
         cards = new ArrayList<>();
@@ -60,6 +60,14 @@ public class Hand {
         return value;
     }
 
+    public void clear() {
+        cards.clear();
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
     @Override
     public String toString() {
         StringBuilder handString = new StringBuilder();
@@ -69,4 +77,3 @@ public class Hand {
         return handString.toString();
     }
 }
-

@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private List<Card> cards;
+     private List<Card> cards;
 
     public Deck() {
         cards = new ArrayList<>();
@@ -36,7 +36,10 @@ public class Deck {
     }
 
     public Card deal() {
+        if (cards.isEmpty()) {
+            build();
+            shuffle();
+        }
         return cards.remove(cards.size() - 1);
     }
 }
-
