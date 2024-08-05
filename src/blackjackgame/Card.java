@@ -9,10 +9,9 @@ package blackjackgame;
  * @author Aayush Soni,Aryan Kachhiyapatel,Dev Patel,Tanish Vyas|
  */
 
-
 public class Card {
-    private String suit;
-    private String rank;
+    private final String suit;
+    private final String rank;
 
     public Card(String suit, String rank) {
         this.suit = suit;

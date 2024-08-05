@@ -13,14 +13,30 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-     private List<Card> cards;
+    private List<Card> cards;
+    private static Deck instance;
 
-    public Deck() {
+    private Deck() {
         cards = new ArrayList<>();
         build();
         shuffle();
     }
 
+    /**
+     * Gets the single instance of the Deck.
+     * 
+     * @return The singleton instance of Deck.
+     */
+    public static Deck getInstance() {
+        if (instance == null) {
+            instance = new Deck();
+        }
+        return instance;
+    }
+
+    /**
+     * Builds a standard deck of 52 cards.
+     */
     public void build() {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
@@ -31,10 +47,19 @@ public class Deck {
         }
     }
 
+    /**
+     * Shuffles the deck of cards.
+     */
     public void shuffle() {
         Collections.shuffle(cards);
     }
 
+    /**
+     * Deals a card from the deck.
+     * Rebuilds and reshuffles if the deck is empty.
+     * 
+     * @return The dealt card.
+     */
     public Card deal() {
         if (cards.isEmpty()) {
             build();

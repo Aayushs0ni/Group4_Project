@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package blackjackgame;
+
 /**
  *
  * @author Aayush Soni,Aryan Kachhiyapatel,Dev Patel,Tanish Vyas|
@@ -17,8 +18,12 @@ public class BlackJackGame {
     private List<Hand> playerHands;
     private Hand dealerHand;
 
+    /**
+     * Constructs a new Blackjack game.
+     * Initializes the deck and player hands.
+     */
     public BlackJackGame() {
-        deck = new Deck();
+        deck = Deck.getInstance(); // Singleton pattern for Deck
         playerHands = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             playerHands.add(new Hand());
@@ -26,6 +31,9 @@ public class BlackJackGame {
         dealerHand = new Hand();
     }
 
+    /**
+     * Deals initial two cards to each player and the dealer.
+     */
     public void dealInitialCards() {
         for (Hand playerHand : playerHands) {
             playerHand.addCard(deck.deal());
@@ -35,22 +43,44 @@ public class BlackJackGame {
         dealerHand.addCard(deck.deal());
     }
 
+    /**
+     * Adds a card to the specified player's hand.
+     * 
+     * @param playerHand The hand of the player.
+     */
     public void playerHit(Hand playerHand) {
         playerHand.addCard(deck.deal());
     }
 
+    /**
+     * Adds a card to the dealer's hand.
+     */
     public void dealerHit() {
         dealerHand.addCard(deck.deal());
     }
 
+    /**
+     * Checks if the specified player's hand value exceeds 21.
+     * 
+     * @param playerHand The hand of the player.
+     * @return True if the hand value is greater than 21, otherwise false.
+     */
     public boolean playerBusted(Hand playerHand) {
         return playerHand.getValue() > 21;
     }
 
+    /**
+     * Checks if the dealer's hand value exceeds 21.
+     * 
+     * @return True if the hand value is greater than 21, otherwise false.
+     */
     public boolean dealerBusted() {
         return dealerHand.getValue() > 21;
     }
 
+    /**
+     * Plays the Blackjack game for four rounds.
+     */
     public void play() {
         for (int round = 1; round <= 4; round++) {
             System.out.println("Round " + round);
@@ -120,6 +150,11 @@ public class BlackJackGame {
         }
     }
 
+    /**
+     * Main method to start the Blackjack game.
+     * 
+     * @param args Command line arguments.
+     */
     public static void main(String[] args) {
         BlackJackGame game = new BlackJackGame();
         game.play();

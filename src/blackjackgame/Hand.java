@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
-     private List<Card> cards;
+    private List<Card> cards;
 
     public Hand() {
         cards = new ArrayList<>();
@@ -22,6 +22,11 @@ public class Hand {
         cards.add(card);
     }
 
+    /**
+     * Calculates the total value of the hand using the Strategy pattern.
+     * 
+     * @return The total value of the hand.
+     */
     public int getValue() {
         int value = 0;
         int aceCount = 0;
