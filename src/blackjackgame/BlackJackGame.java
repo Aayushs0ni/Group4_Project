@@ -6,7 +6,7 @@ package blackjackgame;
 
 /**
  *
- * @author Aayush Soni,Aryan Kachhiyapatel,Dev Patel,Tanish Vyas|
+ * @author Aayush Soni, Aryan Kachhiyapatel, Dev Patel, Tanish Vyas
  */
 
 import java.util.ArrayList;
@@ -23,7 +23,8 @@ public class BlackJackGame {
      * Initializes the deck and player hands.
      */
     public BlackJackGame() {
-        deck = Deck.getInstance(); // Singleton pattern for Deck
+        // Singleton pattern for Deck: Ensures only one instance of the Deck is created and used throughout the game.
+        deck = Deck.getInstance(); 
         playerHands = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             playerHands.add(new Hand());
@@ -158,5 +159,32 @@ public class BlackJackGame {
     public static void main(String[] args) {
         BlackJackGame game = new BlackJackGame();
         game.play();
+    }
+
+    // The following methods are placeholders and currently throw UnsupportedOperationException.
+    // They can be implemented in the future if additional functionality is needed.
+    public void playerHit() {
+        // TODO - implement BlackJackGame.playerHit
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean playerBusted() {
+        // TODO - implement BlackJackGame.playerBusted
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean playerWins() {
+        // TODO - implement BlackJackGame.playerWins
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean dealerWins() {
+        // TODO - implement BlackJackGame.dealerWins
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean push() {
+        // TODO - implement BlackJackGame.push
+        throw new UnsupportedOperationException();
     }
 }
